@@ -26,7 +26,7 @@
                             </div>
                         </div> 
                         <div class="mb-3">
-                            <input type="text" formControlName="dimensiones" class="form-control" placeholder="dimensiones: 8cm x 9cm">
+                            <input type="text" formControlName="dimensiones" class="form-control" placeholder="dimensiones">
                             <div class="text-danger"
                                 *ngIf="tazaForm.get('dimensiones')?.hasError('required') && tazaForm.get('dimensiones')?.touched">
                                 <span>La dimension <strong>es obligatoria</strong></span>
