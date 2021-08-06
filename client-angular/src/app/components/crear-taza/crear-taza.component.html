@@ -1,0 +1,68 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="fs-3">{{ titulo | uppercase }}</span>
+                    <form class="mt-3" [formGroup]="tazaForm" (ngSubmit)="agregarTaza()">
+                        <div class="mb-3">
+                            <select formControlName="tipoTaza" class="form-control">
+                                <option value="">---Selecciona Tipo de taza---</option> 
+                                <option [value]="item" *ngFor="let item of listTiposTazas">{{item}}</option>
+                            </select>
+                            <div class="text-danger" 
+                                *ngIf="tazaForm.get('tipoTaza')?.hasError('required') && tazaForm.get('tipoTaza')?.touched">
+                                <span>El tipo de taza <strong>es obligatorio</strong></span>
+                            </div>
+                        </div> 
+                        <div class="mb-3">
+                            <select formControlName="color" class="form-control">
+                                <option value="">---Selecciona color---</option> 
+                                <option [value]="item" *ngFor="let item of listTiposColores">{{item}}</option>
+                            </select>
+                            <div class="text-danger"
+                                *ngIf="tazaForm.get('color')?.hasError('required') && tazaForm.get('color')?.touched">
+                                <span>La categoria <strong>es obligatoria</strong></span>
+                            </div>
+                        </div> 
+                        <div class="mb-3">
+                            <input type="text" formControlName="dimensiones" class="form-control" placeholder="dimensiones: 8cm x 9cm">
+                            <div class="text-danger"
+                                *ngIf="tazaForm.get('dimensiones')?.hasError('required') && tazaForm.get('dimensiones')?.touched">
+                                <span>La dimension <strong>es obligatoria</strong></span>
+                            </div>
+                        </div> 
+                        <div class="mb-3">
+                            <select formControlName="capacidad" class="form-control">
+                                <option value="">---Selecciona capacidad---</option> 
+                                <option [value]="item" *ngFor="let item of listTiposCapacidad">{{item}}</option>
+                            </select>
+                            <div class="text-danger"
+                                *ngIf="tazaForm.get('capacidad')?.hasError('required') && tazaForm.get('capacidad')?.touched">
+                                <span>La capacidad <strong>es obligatoria</strong></span>
+                            </div>
+                        </div> 
+                        <div class="mb-3">
+                            <input type="text" formControlName="modelo" class="form-control" placeholder="Modelo">
+                            <div class="text-danger"
+                                *ngIf="tazaForm.get('modelo')?.hasError('required') && tazaForm.get('modelo')?.touched">
+                                <span>El modelo <strong>es obligatorio</strong></span>
+                            </div>
+                        </div> 
+                        <div class="mb-3">
+                            <input type="text" formControlName="material" class="form-control" placeholder="Material">
+                            <div class="text-danger"
+                                *ngIf="tazaForm.get('material')?.hasError('required') && tazaForm.get('material')?.touched">
+                                <span>El materia <strong>es obligatorio</strong></span>
+                            </div>
+                        </div> 
+                        <div class="mt-3">
+                            <button routerLink="/" class="btn btn-secondary float-start">VOLVER</button>
+                            <button type="submit" [disabled]="tazaForm.invalid" class="btn btn-success float-end">ACEPTAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

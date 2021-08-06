@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="fs-3">ALMACEN</span>
+                    <button class="btn btn-success float-end" routerLink="/crear-taza"><i class="bi bi-plus-circle"></i> NUEVO</button>
+                    <table *ngIf="listTazas.length > 0" class="table table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th class="col">Taza</th>
+                                <th class="col">Color</th>
+                                <th class="col">Dimensiones</th>
+                                <th class="col">Capacidad</th>
+                                <th class="col">Modelo</th>
+                                <th class="col">Material</th>
+                                <th class="col">Stock</th>
+                                <th class="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let taza of listTazas">
+                                <td class="col">{{ taza.tipoTaza }}</td>
+                                <td class="col">{{ taza.color }}</td>
+                                <td class="col">{{ taza.dimensiones }}</td>
+                                <td class="col">{{ taza.capacidad }}</td>
+                                <td class="col">{{ taza.modelo }}</td>
+                                <td class="col">{{ taza.material }}</td>
+                                <td class="col">{{ taza.stock }}</td>
+                                <td class="col">
+                                    <a [routerLink]="['crear-ingreso', taza.id]" class="btn btn-primary">INGRESO</a>
+                                    <i [routerLink]="['editar-taza', taza.id]" class="bi bi-pencil-square btn btn-secondary ms-3"></i>
+                                    <i (click)="eliminarTaza(taza.id)" class="bi bi-trash-fill btn btn-danger ms-3"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h5 style="text-align: start; margin-top: 10px;" *ngIf="listTazas.length == 0">No hay tazas</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

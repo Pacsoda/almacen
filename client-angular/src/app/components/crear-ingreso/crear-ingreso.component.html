@@ -1,0 +1,48 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="fs-3">INGRESO</span>
+                    <table *ngIf="true" class="table table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th class="col">Taza</th>
+                                <th class="col">Color</th>
+                                <th class="col">Dimensiones</th>
+                                <th class="col">Capacidad</th>
+                                <th class="col">Modelo</th>
+                                <th class="col">Material</th>
+                                <th class="col">Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col">{{ tipoTaza }}</td>
+                                <td class="col">{{ color }}</td>
+                                <td class="col">{{ dimensiones }}</td>
+                                <td class="col">{{ capacidad }}</td>
+                                <td class="col">{{ modelo }}</td>
+                                <td class="col">{{ material }}</td>
+                                <td class="col">{{ stock }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <form class="mt-3" [formGroup]="ingresoForm" (ngSubmit)="agregarIngreso()">
+                        <div class="mb-3">
+                            <input type="text" formControlName="cantidad" class="form-control" placeholder="cantidad">
+                            <div class="text-danger"
+                                *ngIf="ingresoForm.get('cantidad')?.hasError('required') && ingresoForm.get('cantidad')?.touched">
+                                <span>La cantidad <strong>es obligatoria</strong></span>
+                            </div>
+                        </div> 
+                        <div class="mt-3">
+                            <button routerLink="/" class="btn btn-secondary float-start">VOLVER</button>
+                            <button type="submit" [disabled]="ingresoForm.invalid" class="btn btn-success float-end">ACEPTAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
