@@ -91,6 +91,22 @@ public class Taza{
 	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		
+		if(this == obj) {
+			return true;
+		}
+		
+		if(!(obj instanceof Taza)) {
+			return false;
+		}
+		Taza t = (Taza) obj;//cast
+		return this.id != null && this.id.equals(t.getId());
+	}
+	
+	
 	
 	
 }
