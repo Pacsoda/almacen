@@ -27,5 +27,5 @@ jobs:
     - name: Subir .jar
       uses: actions/upload-artifact@v1
       with:
-        name: test-microservicios-eureka
-        path: target/microservicios-eureka-0.0.1-SNAPSHOT.jar
+        name: microservicios-eureka
+        path: microservicios-eureka/target/microservicios-eureka-0.0.1-SNAPSHOT.jar
