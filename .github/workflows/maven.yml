@@ -24,7 +24,7 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file microservicios-eureka/pom.xml
-    - name: Subir .jar
+    - name: Upload jar
       uses: actions/upload-artifact@v1
       with:
         name: microservicios-eureka
